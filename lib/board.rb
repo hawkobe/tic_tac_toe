@@ -1,8 +1,8 @@
 class Board
 
   attr_reader :board
-  def initialize
-    @board = (1..9).to_a
+  def initialize(board = (1..9).to_a)
+    @board = board
   end
 
   def display_board
