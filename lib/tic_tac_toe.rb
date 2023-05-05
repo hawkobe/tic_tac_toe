@@ -15,10 +15,10 @@ class TicTacToe
   attr_reader :board, :players, :current_player
   WINNING_COMBOS = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
 
-  def initialize
-    @board = Board.new
+  def initialize(board = Board.new, current_player = nil)
+    @board = board
     @players = []
-    @current_player = nil
+    @current_player = current_player
     @game_over = false
   end
 
