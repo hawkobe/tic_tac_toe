@@ -11,8 +11,6 @@ class TicTacToe
     Player.clear_players
     play_again
   end
-  
-  private
 
   attr_reader :board, :players, :current_player
   WINNING_COMBOS = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
@@ -37,14 +35,14 @@ class TicTacToe
     @current_player = self.players[1]
   end
 
-  def switch_player
-    @current_player == @players[0] ? @current_player = @players[1] : @current_player = @players[0]
+  def switch_player(current_player, players)
+    current_player == players[0] ? current_player = players[1] : current_player = players[0]
   end
 
   def game_loop
     until @game_over
       board.display_board
-      switch_player
+      switch_player(@current_player, @players)
       self.current_player.place_marker(board.board, @current_player.symbol)
       check_win
       check_tie
