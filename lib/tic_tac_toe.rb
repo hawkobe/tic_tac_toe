@@ -35,14 +35,14 @@ class TicTacToe
     @current_player = self.players[1]
   end
 
-  def switch_player(current_player, players)
-    current_player == players[0] ? current_player = players[1] : current_player = players[0]
+  def switch_player
+    @current_player == @players[0] ? @current_player = @players[1] : @current_player = @players[0]
   end
 
   def game_loop
     until @game_over
       board.display_board
-      switch_player(@current_player, @players)
+      switch_player
       self.current_player.place_marker(board.board, @current_player.symbol)
       check_win
       check_tie
