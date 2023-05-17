@@ -181,4 +181,43 @@ describe TicTacToe do
       tie_game.tie_message
     end
   end
+
+  describe '#play_again' do
+
+    before do
+      allow(game).to receive(:puts).with ('Would you like to play again? Type Y for yes or any other key to Exit:')
+    end
+
+    context 'when the user types something other than Y' do
+      before do
+        allow(game).to receive(:gets).and_return('no')
+      end
+
+      it 'triggers thank you message when the user types no' do
+        expect(game).to receive(:thank_you_message).once
+        game.play_again
+      end
+
+      before do
+        allow(game).to receive(:gets).and_return('\n')
+      end
+
+      it 'triggers thank you message when the user presses enter' do
+        expect(game).to receive(:thank_you_message).once
+        game.play_again
+      end
+    end
+
+    context 'when the user types exactly Y' do
+
+      before do
+        allow(game).to receive(:gets).and_return('Y')
+      end
+
+      it 'triggers new game' do
+        expect(game).to receive(:new_game)
+        game.play_again
+      end
+    end
+  end
 end
