@@ -86,7 +86,11 @@ class TicTacToe
   def play_again
     puts "Would you like to play again? Type Y for yes or any other key to Exit:"
     user_response = gets.chomp
-    user_response == "Y" ? TicTacToe.new.play : thank_you_message
+    user_response == "Y" ? new_game : thank_you_message
+  end
+
+  def new_game
+    TicTacToe.new.play
   end
 
 end
