@@ -117,7 +117,7 @@ describe TicTacToe do
   describe '#check_tie' do
 
     subject(:cats_game) { described_class.new(game_board) }
-    let(:game_board) { double Board.new }
+    let(:game_board) { instance_double(Board) }
 
     context 'when the board is full and game is not won' do
 
@@ -169,7 +169,7 @@ describe TicTacToe do
   describe '#tie_message' do 
 
     subject(:tie_game) { described_class.new(game_board) }
-    let(:game_board) { Board.new }
+    let(:game_board) { instance_double(Board) }
 
     before do
       allow(tie_game).to receive(:puts)
