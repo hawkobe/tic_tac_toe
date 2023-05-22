@@ -1,7 +1,7 @@
 module GameMethods
   
   def symbol_valid?(symbol)
-    symbol.length == 1 && symbol =~ /[^0-9]/
+    symbol.length == 1 && symbol.match?(/[^0-9]/)
   end
 
   def symbol_available?(symbol, class_name)
