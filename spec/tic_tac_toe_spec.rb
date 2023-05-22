@@ -220,4 +220,44 @@ describe TicTacToe do
       end
     end
   end
+
+  describe '#symbol_valid?' do
+
+    context 'when the player symbol is a single letter' do
+
+      it 'returns true' do
+        symbol = 'X'
+        valid_symbol = true
+        verified_result = symbol_valid?(symbol)
+        expect(verified_result).to be(true)
+      end
+    end
+
+    context 'when the player symbol is a symbol' do
+
+      it 'returns true' do
+        symbol = '!'
+        verified_result = symbol_valid?(symbol)
+        expect(verified_result).to be(true)
+      end
+    end
+
+    context 'when the player symbol is more than one letter' do
+
+      it 'returns false' do
+        symbol = 'word'
+        verified_result = symbol_valid?(symbol)
+        expect(verified_result).to be(false)
+      end
+    end
+
+    context 'when the player symbol is a number' do
+
+      it 'returns false' do
+        symbol = '2'
+        verified_result = symbol_valid?(symbol)
+        expect(verified_result).to be(false)
+      end
+    end
+  end
 end
