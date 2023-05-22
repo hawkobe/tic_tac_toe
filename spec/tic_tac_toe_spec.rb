@@ -260,4 +260,45 @@ describe TicTacToe do
       end
     end
   end
+
+  
+  # describe '#symbol_available' do
+
+  # end
+
+  describe '#position_available?' do
+
+    context 'when the player has selected an available position' do
+
+      it 'returns true' do
+        player_selection = 4
+        board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        verified_result = position_available?(player_selection, board)
+        expect(verified_result).to be(true)
+      end
+    end
+
+    context 'when the player has selected an unavailable position' do 
+
+      context 'when the player selects a position already taken' do
+
+        it 'returns false' do
+          player_selection = 4
+          board = [1, 2, 3, 'X', 5, 6, 7, 8, 9]
+          verified_result = position_available?(player_selection, board)
+          expect(verified_result).to be(false)
+        end
+      end
+
+      context 'when the player selects a position not on the board' do
+
+        it 'returns false' do
+          player_selection = 18
+          board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+          verified_result = position_available?(player_selection, board)
+          expect(verified_result).to be(false)
+        end
+      end
+    end
+  end
 end
