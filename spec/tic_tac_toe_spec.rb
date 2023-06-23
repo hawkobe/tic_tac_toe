@@ -301,4 +301,24 @@ describe TicTacToe do
       end
     end
   end
+
+  describe '#execute_move' do
+
+    let(:board) { Board.new }
+
+    context 'when the player picks a board position' do
+
+      it 'uses the correct player symbol' do
+        selection = 1
+        changed_board = execute_move(selection, board.board, player1.symbol)
+        expect(changed_board).to eq('X')
+      end
+
+      it 'updates the correct space on the board' do
+        selection = 3
+        execute_move(selection, board.board, player1.symbol)
+        expect(board.board).to eq([1, 2, 'X', 4, 5, 6, 7, 8, 9])
+      end
+    end
+  end
 end
