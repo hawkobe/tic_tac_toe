@@ -1,3 +1,6 @@
+require_relative '../lib/game_methods.rb'
+include GameMethods
+
 class Player
   attr_reader :name, :symbol, :player_number
   @@all = []
