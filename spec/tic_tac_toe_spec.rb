@@ -261,11 +261,6 @@ describe TicTacToe do
     end
   end
 
-  
-  # describe '#symbol_available' do
-
-  # end
-
   describe '#position_available?' do
 
     context 'when the player has selected an available position' do
