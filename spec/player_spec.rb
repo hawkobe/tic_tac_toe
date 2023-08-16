@@ -36,4 +36,27 @@ describe Player do
       expect(Player.all.length).to be(0)
     end
   end
+
+  describe '#symbol_available' do
+
+    before do
+      Player.new('Jacob', 'X', 1)
+    end
+
+    context 'when the symbol is available' do
+
+      it 'returns true' do
+        verified_result = Player.symbol_available?('y', Player)
+        expect(verified_result).to be(true)
+      end
+    end
+
+    context 'when the symbol is unavailable' do
+
+      it 'returns false' do
+        verified_result = Player.symbol_available?('X', Player)
+        expect(verified_result).to be(false)
+      end
+    end
+  end
 end
