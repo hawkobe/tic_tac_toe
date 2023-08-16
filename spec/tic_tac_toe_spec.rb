@@ -316,4 +316,21 @@ describe TicTacToe do
       end
     end
   end
+
+  describe '#place_marker' do 
+
+    let(:board) { Board.new }
+    let(:game_double) { double'game'}
+
+    before do
+      allow(GameMethods).to receive(:position_available?).and_return(true)
+      allow(GameMethods).to receive(:puts)
+      allow(GameMethods).to receive(:gets).and_return("2")
+    end
+    
+    it 'calls execute move when position is available' do
+      expect(GameMethods).to receive(:execute_move).once
+      GameMethods.place_marker(board.board, "X")
+    end
+  end
 end

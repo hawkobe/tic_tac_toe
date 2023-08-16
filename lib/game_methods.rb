@@ -18,12 +18,12 @@ module GameMethods
   
   def place_marker(board, player_symbol)
     puts "#{self.name}, it's your move. Please select an available position:"
-    selected_position = gets.chomp.to_i
-    until position_available?(selected_position, board)
+    selected_position = gets.chomp
+    until position_available?(selected_position.to_i, board)
       puts "Position not unavailable, please select a new position"
-      selected_position = gets.chomp.to_i
+      selected_position = gets.chomp
     end
-    execute_move(selected_position, board, player_symbol)
+    execute_move(selected_position.to_i, board, player_symbol)
   end
 
 end
